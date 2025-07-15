@@ -20,9 +20,14 @@ if ($usuario) {
     $_SESSION['correo']     = $usuario['correo'];
     $_SESSION['nombre']     = $usuario['nombre'];
     $_SESSION['id_cargo']   = $usuario['id_cargo'];
-    header('Location: inicio.php');
+    
    
-   
+    if ($usuario['id_cargo'] == 5) {
+        header('Location: despachar.php');
+    } else {
+        header('Location: inicio.php');
+    }
+    exit();
 } else {
     echo "❌ Correo o contraseña incorrectos.";
 }
