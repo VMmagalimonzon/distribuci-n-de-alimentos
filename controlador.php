@@ -20,14 +20,9 @@ if ($usuario) {
     $_SESSION['correo']     = $usuario['correo'];
     $_SESSION['nombre']     = $usuario['nombre'];
     $_SESSION['id_cargo']   = $usuario['id_cargo'];
-
+    header('Location: inicio.php');
    
-    if ($usuario['id_cargo'] == 1) {
-        header('Location: admin.php');
-    } else {
-        header('Location: index.php');
-    }
-    exit();
+   
 } else {
     echo "❌ Correo o contraseña incorrectos.";
 }
