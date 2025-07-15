@@ -7,5 +7,6 @@
 </head>
 <body>
     <h1>Control de Stock</h1>
+    
 </body>
 </html>

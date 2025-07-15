@@ -21,29 +21,43 @@ while ($fila = mysqli_fetch_assoc($resultado_cargos)) {
 $error_registro = '';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $nombre = trim($_POST['Nombre'] ?? '');
-    $apellido = trim($_POST['Apellido'] ?? '');
-    $correo = trim($_POST['Correo'] ?? '');
+    $nombre     = trim($_POST['Nombre'] ?? '');
+    $apellido   = trim($_POST['Apellido'] ?? '');
+    $correo     = trim($_POST['Correo'] ?? '');
     $contraseña = trim($_POST['Contraseña'] ?? '');
-    $id = $_POST['id'] ?? '';
+    $id         = $_POST['id'] ?? '';
 
     if ($nombre === '' || $apellido === '' || $correo === '' || $contraseña === '' || $id === '') {
         $error_registro = "Por favor completa todos los campos, incluido el cargo.";
     } else if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
         $error_registro = "El correo electrónico no es válido.";
     } else {
-        $stmt = $conexion->prepare("INSERT INTO usuarios (nombre, apellido, correo, contraseña, id_cargo) VALUES (?, ?, ?, ?, ?)");
-        if ($stmt === false) {
-            $error_registro = "Error en la consulta: " . $conexion->error;
-        } else {
-            $stmt->bind_param("ssssi", $nombre, $apellido, $correo, $contraseña, $id);
-            if ($stmt->execute()) {
-                header("Location: index.php");
-                exit();
-            } else {
-                $error_registro = "Error al registrar usuario: " . $stmt->error;
-            }
+        // Verificar si el correo ya está registrado
+        $stmt = $conexion->prepare("SELECT id_usuario FROM usuarios WHERE correo = ?");
+        $stmt->bind_param("s", $correo);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            $error_registro = "El correo ya está registrado. Por favor usa otro.";
             $stmt->close();
+        } else {
+            $stmt->close();
+
+            // Insertar nuevo usuario
+            $stmt = $conexion->prepare("INSERT INTO usuarios (nombre, apellido, correo, contraseña, id_cargo) VALUES (?, ?, ?, ?, ?)");
+            if ($stmt === false) {
+                $error_registro = "Error en la consulta: " . $conexion->error;
+            } else {
+                $stmt->bind_param("ssssi", $nombre, $apellido, $correo, $contraseña, $id);
+                if ($stmt->execute()) {
+                    header("Location: index.php");
+                    exit();
+                } else {
+                    $error_registro = "Error al registrar usuario: " . $stmt->error;
+                }
+                $stmt->close();
+            }
         }
     }
 }
@@ -72,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <label for="id">Selecciona tu cargo:</label>
         <select name="id" id="id" required>
             <option value="">-- Seleccionar cargo --</option>
-            <?php foreach ($cargos as $cargo): ?> <!-- recorre el arreglo y me trae cada resultado  -->
+            <?php foreach ($cargos as $cargo): ?>
                 <option value="<?= $cargo['id'] ?>" <?= (isset($_POST['id']) && $_POST['id'] == $cargo['id']) ? 'selected' : '' ?>>
                     <?= htmlspecialchars($cargo['descripcion']) ?>
                 </option>
@@ -82,7 +96,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <br><br>
         <input type="submit" value="Registrarse" />
         <button type="button" onclick="window.location.href=window.location.href">Limpiar</button>
-
     </form>
 
     <br>

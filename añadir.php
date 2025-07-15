@@ -32,7 +32,9 @@
         <input type="submit" name="añadir" value="Añadir">
         <input type="reset" value="Limpiar">
     </form>
-
+    <a href="inicio.php">
+        <button>Volver al menu </button>
+    </a>
     <?php
     include("conexion.php");
 
@@ -56,5 +58,6 @@
         }
     }
     ?>
+
 </body>
 </html>
