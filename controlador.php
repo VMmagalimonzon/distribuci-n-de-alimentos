@@ -22,7 +22,7 @@ if ($usuario) {
     $_SESSION['id_cargo']   = $usuario['id_cargo'];
     
    
-    if ($usuario['id_cargo'] == 5) {
+    if ($usuario['id_cargo'] == 3) {
         header('Location: despachar.php');
     } else {
         header('Location: inicio.php');
