@@ -39,6 +39,7 @@ if (!$resultado) {
 <head>
     <meta charset="UTF-8">
     <title>Alumnos Registrados</title>
+    <link rel="stylesheet" href="css/alumnos.css">
 </head>
 <body>
     <h1>Alumnos Registrados</h1>
@@ -108,6 +109,6 @@ if (!$resultado) {
             <?php endif; ?>
         </tbody>
     </table>
-
+    
 </body>
 </html>
