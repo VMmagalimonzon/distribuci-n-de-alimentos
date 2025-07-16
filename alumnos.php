@@ -61,8 +61,14 @@ if (!$resultado) {
         <button type="submit">Filtrar</button>
         <a href="alumnos.php"><button type="button">Limpiar filtros</button></a>
     </form>
-
     <br>
+    <a href="añadir.php">
+        <button>Añadir alumnos</button>
+    </a>
+    <br>
+    <a href="inicio.php">
+        <button>Volver</button>
+    </a>
 
     <table border="1" cellpadding="5">
         <thead>
