@@ -32,6 +32,9 @@ include("conexion.php");
     <a href="stock.php">
         <button>Stock</button>
     </a>
+    <a href="alumnos.php">
+        <button>Alumnos registrados</button>
+    </a>
     <?php else: ?>
         <a href="sesion.php">
             <button>Iniciar sesión</button>
