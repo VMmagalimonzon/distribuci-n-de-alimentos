@@ -9,7 +9,7 @@
     <h1>Iniciar Secion</h1>
     <p>Llena los siguientes campos para poder iniciar secion </p>
     
-    <form action="controlador.php" name="Sesion" method="get" required>
+    <form action="controlador.php" name="Sesion" method="POST" required>
      <input type="email" name="Correo" placeholder="Correo electronico" required>
      <input type="password" name="Contraseña" placeholder="Contraseña" required>
     
@@ -27,6 +27,6 @@
 </body>
 <?php
 include("conexion.php");
-
+session_start()
 ?>
 </html>

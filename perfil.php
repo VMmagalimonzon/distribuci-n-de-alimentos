@@ -2,12 +2,13 @@
 session_start();
 include("conexion.php");
 
-if (!isset($_SESSION['id_usuario']) || !isset($_GET['id'])) {
+// Validar sesión
+if (!isset($_SESSION['id_usuario'])) {
     header("Location: index.php");
     exit();
 }
 
-$id = $_GET['id'];
+$id = $_SESSION['id_usuario'];
 
 $sql = "SELECT * FROM usuarios WHERE id_usuario = ?";
 $stmt = $conexion->prepare($sql);
@@ -21,6 +22,7 @@ if (!$usuario) {
     exit();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +50,7 @@ if (!$usuario) {
 
         <div class="descripcion">
           <h3>Editar Información</h3>
-          <form method="POST" action="Procesar.Actualizacion/procesar_actualizacion_perfil.php">
+          <form method="POST" action="procesar_actualizacion_perfil.php">
             <input type="hidden" name="id_usuario" value="<?= $usuario['id_usuario'] ?>">
 
             <label>Nombre:</label><br>
@@ -64,12 +66,16 @@ if (!$usuario) {
             <input type="password" name="contraseña" autocomplete="new-password"><br><br>
 
             <button type="submit">Actualizar</button>
-            <a href="index.php"><button type="button">Cancelar</button></a>
+            <?php
+            $destinoCancelar = ($usuario['id_cargo'] == 3) ? "despachar.php" : "inicio.php";
+            ?>
+              <a href="<?= $destinoCancelar ?>"><button type="button">Cancelar</button></a>
+
           </form>
         </div>
 
         <div class="eliminar">
-          <form method="POST" action="Eliminar/eliminar_cuenta.php" onsubmit="return confirm('¿Estás seguro que querés eliminar tu cuenta?')">
+          <form method="POST" action="eliminar_cuenta.php" onsubmit="return confirm('¿Estás seguro que querés eliminar tu cuenta?')">
             <input type="hidden" name="id_usuario" value="<?= $usuario['id_usuario'] ?>">
             <button type="submit" class="btn-eliminar">Eliminar cuenta</button>
           </form>

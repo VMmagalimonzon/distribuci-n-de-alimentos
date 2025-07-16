@@ -12,6 +12,7 @@
     <form action="" name="añadir" method="post">
         <input type="text" name="nombre" placeholder="Nombre" required>
         <input type="text" name="apellido" placeholder="Apellido" required>
+        <p>dni sin puntos y sin espacios </p>
         <input type="number" name="dni" placeholder="DNI" required>
         <input type="text" name="curso" placeholder="Curso" required>
         <input type="text" name="division" placeholder="División" required>
@@ -32,7 +33,15 @@
         <input type="submit" name="añadir" value="Añadir">
         <input type="reset" value="Limpiar">
     </form>
-
+    <a href="inicio.php">
+        <button>Volver al menu </button>
+    </a>
+    <a href="alumnos.php">
+        <button>Ver registro de alumnos</button>
+    </a>
+    <a href="inicio.php">
+        <button>Volver</button>
+    </a>
     <?php
     include("conexion.php");
 
@@ -56,5 +65,6 @@
         }
     }
     ?>
+
 </body>
 </html>

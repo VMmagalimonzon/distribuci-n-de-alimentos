@@ -3,8 +3,8 @@ session_start();
 include("conexion.php");
 
 
-$correo = trim($_GET['Correo']);
-$contraseña = trim($_GET['Contraseña']);
+$correo = trim($_POST['Correo']);
+$contraseña = trim($_POST['Contraseña']);
 
 
 $sql = "SELECT id_usuario, correo, contraseña, id_cargo, nombre FROM usuarios WHERE correo = ? AND contraseña = ?";
