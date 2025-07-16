@@ -2,6 +2,7 @@
 include("conexion.php");
 
 // Obtener valores de los filtros (si vienen por GET)
+$dni       = $_GET['dni']       ?? '';
 $curso     = $_GET['curso']     ?? '';
 $division  = $_GET['division']  ?? '';
 $celiaco   = $_GET['celiaco']   ?? '';
@@ -11,6 +12,9 @@ $diabetico = $_GET['diabetico'] ?? '';
 $sql = "SELECT * FROM alumno WHERE 1=1";
 
 // Agregar condiciones según los filtros
+if ($dni != '') {
+    $sql .= " AND dni = '" . mysqli_real_escape_string($conexion, $dni) . "'";
+}
 if ($curso != '') {
     $sql .= " AND curso = '" . mysqli_real_escape_string($conexion, $curso) . "'";
 }
@@ -41,6 +45,7 @@ if (!$resultado) {
 
     <h3>Filtrar alumnos</h3>
     <form method="get" action="">
+        <input type="text" name="dni" placeholder="DNI" value="<?= htmlspecialchars($dni) ?>">
         <input type="text" name="curso" placeholder="Curso" value="<?= htmlspecialchars($curso) ?>">
         <input type="text" name="division" placeholder="División" value="<?= htmlspecialchars($division) ?>">
 
@@ -61,6 +66,7 @@ if (!$resultado) {
         <button type="submit">Filtrar</button>
         <a href="alumnos.php"><button type="button">Limpiar filtros</button></a>
     </form>
+
     <br>
     <a href="añadir.php">
         <button>Añadir alumnos</button>

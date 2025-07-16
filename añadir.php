@@ -12,6 +12,7 @@
     <form action="" name="añadir" method="post">
         <input type="text" name="nombre" placeholder="Nombre" required>
         <input type="text" name="apellido" placeholder="Apellido" required>
+        <p>dni sin puntos y sin espacios </p>
         <input type="number" name="dni" placeholder="DNI" required>
         <input type="text" name="curso" placeholder="Curso" required>
         <input type="text" name="division" placeholder="División" required>
