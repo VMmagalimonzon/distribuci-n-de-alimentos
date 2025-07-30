@@ -37,11 +37,7 @@ if (!$usuario) {
   <main>
     <section class="perfil-container">
       <div class="perfil-info">
-        <div class="foto-nombre">
-          <div class="foto-perfil">
-            <img id="imgPerfil" src="https://via.placeholder.com/100" alt="Foto de perfil">
-            <input type="file" id="fileInput" accept="image/*">
-          </div>
+       
           <div class="datos-usuario">
             <h2><?= htmlspecialchars($usuario['nombre']) . " " . htmlspecialchars($usuario['apellido']) ?></h2>
             <p><?= htmlspecialchars($usuario['correo']) ?></p>
@@ -84,21 +80,6 @@ if (!$usuario) {
     </section>
   </main>
 
-  <script>
-    // Mostrar imagen cargada (sin guardar en base de datos)
-    const fileInput = document.getElementById("fileInput");
-    const imgPerfil = document.getElementById("imgPerfil");
-
-    fileInput.addEventListener("change", function () {
-      const archivo = fileInput.files[0];
-      if (archivo) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          imgPerfil.src = e.target.result;
-        };
-        reader.readAsDataURL(archivo);
-      }
-    });
-  </script>
+ 
 </body>
 </html>

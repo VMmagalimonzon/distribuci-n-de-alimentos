@@ -11,6 +11,6 @@
     die("conexion fallida " . $conexion->connect_errno);
   } 
   else {
-    echo "";
+    echo "conectado";
   }
 ?>
