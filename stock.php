@@ -42,6 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8" />
     <title>Agregar Stock</title>
+    <link rel="stylesheet" href="css/stock.css">
 </head>
 <body>
     <h2>Formulario para ingresar stock</h2>

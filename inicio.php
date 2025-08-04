@@ -17,34 +17,30 @@ include("conexion.php");
     <?php if (isset($_SESSION['id_usuario'])): ?>
         <h2>Bienvenido, <?= htmlspecialchars($_SESSION['nombre']) ?> 👋</h2>
         <br>
-        <a href="cerrar_sesion.php">
-            <button>Cerrar sesión</button>
-        </a>
-          
-    <a href="despachar.php">
-        <button>Despachar</button>
-    </a>
-    <a href="añadir.php">
-        <button>Añadir Alumnos</button>
-    </a>
-    <a href="perfil.php">
-        <button>Editar perfil</button>
-    </a>
-    <a href="stock.php">
-        <button>Stock</button>
-    </a>
-    <a href="alumnos.php">
-        <button>Alumnos registrados</button>
-    </a>
+     <div class="menu">
+      <a href="cerrar_sesion.php"><button><p>Cerrar sesión</p></button></a>
+      <a href="despachar.php"><button><p>Despachar</p></button></a>
+      <a href="añadir.php"><button><p>Añadir Alumnos</p></button></a>
+      <a href="perfil.php"><button><p>Editar perfil</p></button></a>
+      <a href="stock.php"><button><p>Stock</p></button></a>
+      <a href="alumnos.php"><button><p>Alumnos registrados</p></button></a>
+     </div>
+
     <?php else: ?>
-        <a href="sesion.php">
-            <button>Iniciar sesión</button>
-        </a>
+        <div class="menu">
+        <a href="sesion.php"><button><p>Iniciar sesión</p></button></a>
         <br><br>
-        <a href="registrase.php">
-            <button>Registrarse</button>
-        </a>
+        <a href="registrase.php"><button><p>Registrarse</p></button></a>
+        </div>
     <?php endif; ?>
-        
+        <footer class="footer">
+         <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+          <path d="M0,0 C480,80 960,0 1440,60 L1440,100 L0,100 Z" fill="#008f6c" />
+         </svg>
+          <div class="footer-content">
+           <p>&copy; 2025 Distribucion de Alimentos - Todos los derechos reservados</p>
+          </div>
+        </footer>
+
 </body>
 </html>
