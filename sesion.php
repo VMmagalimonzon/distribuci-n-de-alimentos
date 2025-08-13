@@ -9,8 +9,8 @@
 </head>
 <body>
     <div class="form-box">
-    <h1>Iniciar Secion</h1>
-    <p>Llena los siguientes campos para poder iniciar secion </p>
+    <h1>Iniciar Sesion</h1>
+    <p>Llena los siguientes campos para poder iniciar sesion </p>
     
     <form action="controlador.php" name="Sesion" method="POST" required>
      <input type="email" name="Correo" placeholder="Correo electronico" required>
