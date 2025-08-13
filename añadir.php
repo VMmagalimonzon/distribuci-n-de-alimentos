@@ -39,9 +39,7 @@
     <a href="alumnos.php">
         <button>Ver registro de alumnos</button>
     </a>
-    <a href="inicio.php">
-        <button>Volver</button>
-    </a>
+   
     <?php
     include("conexion.php");
 
