@@ -16,7 +16,7 @@
      <input type="email" name="Correo" placeholder="Correo electronico" required>
      <input type="password" name="Contraseña" placeholder="Contraseña" required>
      <input type="submit" name="Iniciar_Sesion" value="Iniciar Sesion">
-     <input type="reset">
+     <input type="reset" value= "Limpiar" >
 
      </form> 
         <br>
