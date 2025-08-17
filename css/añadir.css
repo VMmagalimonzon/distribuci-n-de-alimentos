@@ -1,7 +1,5 @@
 body {
-  background: linear-gradient(-45deg, #80cbc4, #26a69a, #004d40, #009688 );
-  background-size: 400% 400%;
-  animation: animarFondo 12s ease infinite;
+  background-color: #eafdea; 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 1rem;
   display: flex;
@@ -13,21 +11,21 @@ body {
 
 h1 {
   font-size: 2rem;
-  color: #000504;
+  color: #1b3d2f;
   margin-bottom: 0.5rem;
   text-align: center;
   animation: fadeIn 1s ease-in-out;
 }
 
 p {
-  color: #001d19;
+  color: #2e5d4e;
   margin-bottom: 1rem;
   text-align: center;
   animation: fadeIn 1.2s ease-in-out;
 }
 
 form {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: #c8e6c9; 
   padding: 1.5rem;
   border-radius: 1rem;
   box-shadow: 0 8px 16px rgba(0,0,0,0.15);
@@ -43,23 +41,24 @@ input[type="text"],
 input[type="number"],
 select {
   padding: 0.7rem;
-  border: 1px solid #00695c;
+  border: 1px solid #4caf50;
   border-radius: 0.5rem;
+  background-color: #f9fbe7;
   transition: all 0.3s ease;
 }
 
 input[type="text"]:focus,
 input[type="number"]:focus,
 select:focus {
-  border-color: #00695c;
-  box-shadow: 0 0 5px #00695c;
+  border-color: #81c784;
+  box-shadow: 0 0 5px #81c784;
   outline: none;
 }
 
 input[type="submit"],
 input[type="reset"],
 button {
-  background-color: #00695c;
+  background-color: #388e3c;
   color: white;
   padding: 0.7rem;
   border: none;
@@ -72,53 +71,27 @@ button {
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 button:hover {
-  background-color: #001d19;
+  background-color: #1b5e20;
 }
 
-a button {
-  width: 100%;
-  margin-top: 0.5rem;
-}
-
-a {
-  text-decoration: none;
-  display: block;
-  max-width: 400px;
-  width: 100%;
-}
-
-.boton-pequeño1 {
+.boton-pequeño1,
+.boton-pequeño2 {
   padding: 8px 15px;
   font-size: 15px;
-  margin: 0 10px;
   cursor: pointer;
-  border: 1px solid #004d40;
-  background-color: #00695c;
-  color: #000000;
-  border-radius: 5px;
-  width: 150px;
-  height: 50px;
+  border: 1px solid #2e5d4e;
+  background-color: #388e3c;
+  color: #ffffff;
+  border-radius: 8px;
+  height: 45px;
   text-align: center;
   font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
-.boton-pequeño2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8x 15px;
-  font-size: 15px;
-  margin: 0 10px;
-  cursor: pointer;
-  border: 1px solid #004d40;
-  background-color: #00695c;
-  color: #000000;
-  border-radius: 5px;
-  width: 180px;
-  height: 50px;
-  text-align: center;
-  font-weight: bold;
-
+.boton-pequeño1:hover,
+.boton-pequeño2:hover {
+  background-color: #1b5e20;
 }
 
 .contenedor-botones {
@@ -126,6 +99,7 @@ a {
   justify-content: center;
   gap: 10px;
   margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 .error {
@@ -145,12 +119,6 @@ a {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes animarFondo {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 @media (max-width: 500px) {
   form {
     padding: 1rem;
@@ -158,5 +126,9 @@ a {
   }
   h1 {
     font-size: 1.5rem;
+  }
+  .contenedor-botones {
+    flex-direction: column;
+    align-items: center;
   }
 }
