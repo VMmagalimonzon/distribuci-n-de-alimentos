@@ -1,5 +1,5 @@
 body {
-  background-color: #1b3d2f;
+  background-color: #eafdea; 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 1rem;
   display: flex;
@@ -11,19 +11,19 @@ body {
 
 h1 {
   font-size: 2rem;
-  color: #dcedc1;  
+  color: #2e7d32;  
   margin-bottom: 0.5rem;
   text-align: center;
 }
 
 p {
-  color: #b2dfdb;
+  color: #388e3c; 
   margin-bottom: 1rem;
   text-align: center;
 }
 
 form {
-  background-color: #2e5d4e; 
+  background-color: #d6f5d6; 
   padding: 1.5rem;
   border-radius: 1rem;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
@@ -32,6 +32,11 @@ form {
   gap: 0.8rem;
   max-width: 400px;
   width: 100%;
+  transition: transform 0.3s ease;
+}
+
+form:hover {
+  transform: scale(1.02);
 }
 
 input[type="text"],
@@ -55,20 +60,21 @@ select:focus {
 input[type="submit"],
 input[type="reset"],
 button {
-  background-color: #388e3c; 
+  background-color: #4caf50; 
   color: white;
   padding: 0.7rem;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 button:hover {
-  background-color: #1b5e20; 
+  background-color: #388e3c; 
+  transform: scale(1.05);
 }
 
 a button {
@@ -98,4 +104,10 @@ a {
   h1 {
     font-size: 1.5rem;
   }
+  input[type="submit"],
+  input[type="reset"],
+  button {
+    width: 100%;
+  }
 }
+
