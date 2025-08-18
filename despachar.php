@@ -52,6 +52,7 @@ if (!$resultado) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zona despacho</title>
+    <link rel="stylesheet" href="css/despachar.css">
 </head>
 <body>
     <h1>Zona despacho</h1>

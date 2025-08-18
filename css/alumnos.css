@@ -51,7 +51,7 @@ table {
   width: 90%;
   margin: 2rem auto;
   border-collapse: collapse;
-  background-color:#09583e;
+  background-color:#0e865e;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   border: 2px solid ;
   border-radius: 10px;
@@ -65,7 +65,7 @@ th, td {
 }
 
 th {
-  background-color: #09583e;
+  background-color:#0e865e;
   color: white;
 }
 
