@@ -1,0 +1,101 @@
+ body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 2rem;
+  background-color: #eafdea;
+  text-align: center;
+}
+
+h1 {
+  color:#008f6c;
+  margin-bottom: 1rem;
+}
+
+/* FORMULARIO DE FILTRO */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+form input,
+form select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* BOTONES CON DISEÑO LINDO */
+a button,
+form button {
+  background-color:#008f6c ;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin: 0.3rem;
+}
+
+a button:hover,
+form button:hover {
+  background-color:#004d40;
+  transform: scale(1.05);
+}
+
+/* TABLA CON BORDES DE COLORES */
+table {
+  width: 90%;
+  margin: 2rem auto;
+  border-collapse: collapse;
+  background-color:#09583e;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  border: 2px solid ;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 0.75rem;
+  border: 1px solid #001611;
+  text-align: center;
+}
+
+th {
+  background-color: #09583e;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #e3f2fd;
+}
+
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  form input,
+  form select {
+    width: 100%;
+  }
+
+  }
+
