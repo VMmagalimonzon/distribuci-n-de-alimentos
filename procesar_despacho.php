@@ -1,44 +1,36 @@
 <?php
 require_once("conexion.php");
 
-// Obtener datos del formulario
 $id_alumno = $_POST['id_alumno'] ?? null;
 $id_lote   = $_POST['id_lote'] ?? null;
 
-if ($id_alumno === null || $id_lote === null) {
+if(!$id_alumno || !$id_lote){
     die("Datos incompletos");
 }
 
-// SUMAR módulo al alumno
-$stmt = $conexion->prepare("UPDATE alumno SET modulo = modulo + 1 WHERE id_alumno = ?");
-$stmt->bind_param("i", $id_alumno);
-if (!$stmt->execute()) {
-    die("Error al actualizar módulo del alumno: " . $stmt->error);
-}
-$stmt->close();
+// Verificar stock disponible
+$check = $conexion->query("SELECT stock FROM alimentos WHERE num_lote = $id_lote");
+$lote = $check->fetch_assoc();
 
-// RESTAR stock al lote
-$stmt = $conexion->prepare("UPDATE alimentos SET stock = stock - 1 WHERE num_lote = ?");
-$stmt->bind_param("i", $id_lote);
-if (!$stmt->execute()) {
-    die("Error al actualizar stock: " . $stmt->error);
+if ($lote['stock'] <= 0) {
+    die("No hay stock disponible para este lote.");
 }
-$stmt->close();
 
-// INSERTAR registro en fecha_despacho
-$fecha_actual = date("Y-m-d");
-$sql = "INSERT INTO fecha_despacho (id_alumnoo, id_distribucion, fecha_entrega) VALUES (?, ?, ?)";
-$stmt = $conexion->prepare($sql);
-if (!$stmt) {
-    die("Error en prepare: " . $conexion->error);
-}
-$stmt->bind_param("iis", $id_alumno, $id_lote, $fecha_actual);
-if (!$stmt->execute()) {
-    die("Error al guardar fecha de despacho: " . $stmt->error);
-}
-$stmt->close();
+// 1. Sumar módulo al alumno
+$conexion->query("UPDATE alumno SET modulo = modulo + 1 WHERE id_alumno = $id_alumno");
 
-// Redirigir al listado
-header("Location: despachar.php");
+// 2. Restar stock al lote
+$conexion->query("UPDATE alimentos SET stock = stock - 1 WHERE num_lote = $id_lote");
+
+// 3. Insertar en tabla fecha_despacho usando `id_alumnoo`
+$fecha = date("Y-m-d");
+$conexion->query("INSERT INTO fecha_despacho (id_alumnoo, fecha_entrega) VALUES ($id_alumno, '$fecha')");
+
+// Redirigir manteniendo filtros
+$dni       = $_POST['dni'] ?? '';
+$curso     = $_POST['curso'] ?? '';
+$division  = $_POST['division'] ?? '';
+
+header("Location: despachar.php?dni=$dni&curso=$curso&division=$division");
 exit;
 ?>

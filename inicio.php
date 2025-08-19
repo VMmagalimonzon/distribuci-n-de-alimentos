@@ -18,7 +18,7 @@ include("conexion.php");
         <h2>Bienvenido, <?= htmlspecialchars($_SESSION['nombre']) ?> 👋</h2>
         <br>
      <div class="menu">
-      <a href="cerrar_sesion.php"><button><p>Cerrar sesión</p></button></a>
+      <a href="cerrar_sesion.php" class = "prueba"><button><p>Cerrar sesión</p></button></a>
       <a href="despachar.php"><button><p>Despachar</p></button></a>
       <a href="añadir.php"><button><p>Añadir Alumnos</p></button></a>
       <a href="perfil.php"><button><p>Editar perfil</p></button></a>
