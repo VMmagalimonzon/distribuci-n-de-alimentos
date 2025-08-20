@@ -38,7 +38,7 @@ if (!$usuario) {
             <!-- Encabezado perfil -->
             <div class="perfil-header">
                 <div class="perfil-foto">
-                    <img src="uploads/<?= htmlspecialchars($usuario['foto'] ?? 'default.png') ?>" alt="Foto de perfil">
+                    <img id="preview-foto" src="<?= htmlspecialchars($usuario['foto'] ?? 'uploads/default.png') ?>" alt="Foto de perfil">
                 </div>
                 <div class="perfil-datos">
                     <h2><?= htmlspecialchars($usuario['nombre']) . " " . htmlspecialchars($usuario['apellido']) ?></h2>
@@ -46,18 +46,14 @@ if (!$usuario) {
                     <p class="rol">Usuario registrado</p>
                     
                     <div class="perfil-botones">
-                        <a href="inicio.php"><button class="btn-verde">Inicio</button></a>
-                        <a href="inicio.php"><button class="btn-azul">Ir a menu</button></a>
+                      
+                        <a href="inicio.php"><button class="btn-azul">Ir a menú</button></a>
                     </div>
                 </div>
+                    
             </div>
 
-            <!-- Descripción -->
-            <div class="perfil-descripcion">
-                <h3>Sobre mí</h3>
-                <p><?= !empty($usuario['descripcion']) ? htmlspecialchars($usuario['descripcion']) : "Todavía no agregaste una descripción." ?></p>
-            </div>
-
+           
             <!-- Formulario editar -->
             <div class="perfil-editar">
                 <h3>Editar Información</h3>
@@ -73,8 +69,11 @@ if (!$usuario) {
                     <label>Correo:</label>
                     <input type="email" name="correo" value="<?= htmlspecialchars($usuario['correo']) ?>" required>
 
-                    <label for="foto" class="file-label">Elegir archivo</label>
-                    <input type="file" id="foto" name="foto">
+                    <label>Descripción:</label>
+                    <textarea name="descripcion" rows="4"><?= htmlspecialchars($usuario['descripcion']) ?></textarea>
+
+                    <label for="foto" class="file-label">Foto de perfil:</label>
+                    <input type="file" id="foto" name="foto" accept="image/*">
 
                     <label>Contraseña (dejar en blanco si no se cambia):</label>
                     <input type="password" name="contraseña" autocomplete="new-password">
@@ -94,7 +93,19 @@ if (!$usuario) {
             </div>
         </section>
     </main>
+
+    <!-- Script para vista previa de foto -->
+    <script>
+    document.getElementById("foto").addEventListener("change", function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById("preview-foto").src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+    </script>
 </body>
 </html>
-
-
