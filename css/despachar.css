@@ -41,7 +41,7 @@ select {
   padding: 0.7rem;
   border: 1px solid #81c784;
   border-radius: 0.5rem;
-  background-color: #f1f8e9;
+  background-color: #a5f0b8;
   font-size: 1rem;
   transition: border-color 0.3s ease;
 }
@@ -49,7 +49,7 @@ select {
 input[type="text"]:focus,
 input[type="number"]:focus,
 select:focus {
-  border-color: #4caf50;
+  border-color: #a8e6a1;
   outline: none;
   box-shadow: 0 0 6px rgba(76, 175, 80, 0.5);
 }
@@ -57,7 +57,7 @@ select:focus {
 button,
 input[type="submit"],
 input[type="reset"] {
-  background-color: #4caf50;
+  background-color: #99e699;
   color: white;
   padding: 0.8rem;
   border: none;
