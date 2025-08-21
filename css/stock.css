@@ -1,5 +1,5 @@
 body {
-  background-color: #eafdea; 
+  background-color:#eafdea; 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 1rem;
   display: flex;
@@ -81,7 +81,7 @@ select:focus {
 input[type="submit"],
 input[type="reset"],
 button {
-  background-color: #4caf50; 
+  background-color: #2fa578; 
   color: white;
   padding: 0.7rem 1.2rem;
   border: none;
@@ -94,7 +94,7 @@ button {
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 button:hover {
-  background-color: #388e3c; 
+  background-color:  #2fa578; 
   transform: scale(1.05);
 }
 

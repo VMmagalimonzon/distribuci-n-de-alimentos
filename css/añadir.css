@@ -1,5 +1,5 @@
 body {
-  background-color: #eafdea; 
+  background-color:#eafdea; 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 1rem;
   display: flex;
@@ -58,7 +58,7 @@ select:focus {
 input[type="submit"],
 input[type="reset"],
 button {
-  background-color: #388e3c;
+  background-color: #2fa578;
   color: white;
   padding: 0.7rem;
   border: none;
@@ -71,7 +71,7 @@ button {
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 button:hover {
-  background-color: #1b5e20;
+  background-color: #2fa578;
 }
 
 .boton-pequeño1,
@@ -79,8 +79,8 @@ button:hover {
   padding: 8px 15px;
   font-size: 15px;
   cursor: pointer;
-  border: 1px solid #2e5d4e;
-  background-color: #388e3c;
+  border: 1px solid  #2fa578;
+  background-color: #2fa578;
   color: #ffffff;
   border-radius: 8px;
   height: 45px;
@@ -91,7 +91,7 @@ button:hover {
 
 .boton-pequeño1:hover,
 .boton-pequeño2:hover {
-  background-color: #1b5e20;
+  background-color: #129658;
 }
 
 .contenedor-botones {
