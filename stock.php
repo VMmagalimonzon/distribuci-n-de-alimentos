@@ -68,5 +68,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <input type="submit" value="Agregar stock">
     </form>
+
+<div class="form-actions">
+  <input type="submit" value="Guardar">
+  <input type="reset" value="Limpiar">
+  <a href="index.php"><button type="button">Inicio</button></a>
+</div>
+
 </body>
 </html>
