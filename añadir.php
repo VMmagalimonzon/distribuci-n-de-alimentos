@@ -50,7 +50,7 @@
         $celiaco = intval($_POST['celiaco']); // convertimos a entero
         $diabetico = intval($_POST['diabetico']);
 
-        $consulta = "INSERT INTO alumno VALUES('', '$nombre', '$apellido', '$dni', '$curso', '$division', '$celiaco', '$diabetico')";
+        $consulta = "INSERT INTO alumno VALUES('', '$nombre', '$apellido', '$dni', '$curso', '$division', '$celiaco', '$diabetico' ,'0')";
         $resultado = mysqli_query($conexion, $consulta);
 
         if ($resultado) {
