@@ -67,13 +67,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="num_lote" required><br><br>
 
         <input type="submit" value="Agregar stock">
+        <input type="reset" value="Limpiar campos">
+        
     </form>
-
-<div class="form-actions">
-  <input type="submit" value="Guardar">
-  <input type="reset" value="Limpiar">
-  <a href="index.php"><button type="button">Inicio</button></a>
-</div>
-
+    <a href="inicio.php">
+            <button>Volver al inicio</button>
+        </a>
 </body>
 </html>
