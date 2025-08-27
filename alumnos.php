@@ -38,7 +38,7 @@ if (!$resultado) {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Alumnos Registrados</title>
+    <title>Alumnos Registrados 3 escuelas</title>
     <link rel="stylesheet" href="css/alumnos.css">
 </head>
 <body>
